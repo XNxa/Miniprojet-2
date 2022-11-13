@@ -1,10 +1,10 @@
 % Compte-rendu minimal du mini-projet SDA : LCA et TH
-% Auteur : NOM Prénom
+% Auteur : NOM Prenom
 % Groupe de TP : ...
 
 
-**Consigne :** Vous devez écrire vos réponse à la place des ... en laissant
-une ligne vide avant et deux après votre réponse.
+**Consigne :** Vous devez ecrire vos reponse a la place des ... en laissant
+une ligne vide avant et deux apres votre reponse.
 
 **Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
 une version PDF en faisant par exemple :
@@ -18,45 +18,45 @@ pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
 
 ## Question 1.4
 
-**Indiquer les inconvénients/avantages d'une implantation par listes chaînées
+**Indiquer les inconvenients/avantages d'une implantation par listes chainees
 d'une SDA.**
 
 ...
 
 
 
-# Évaluation expérimentale.
+# evaluation experimentale.
 
-## Performance comparée de LCA et TH
+## Performance comparee de LCA et TH
 
-Indiquer ici les résultats obtenus.
-
-...
-
-
-## Qualité du générateur aléatoire
-
-Indiquer les conclusions quant à la qualité du générateur aléatoire.
+Indiquer ici les resultats obtenus.
 
 ...
 
 
+## Qualite du generateur aleatoire
 
-# Principales difficultés rencontrées
-
-Indiquer ici les principales difficultés rencontrées lors de la réalisation de
-ce projet et comment elles ont été surmontées ou contournéeS.
+Indiquer les conclusions quant a la qualite du generateur aleatoire.
 
 ...
 
 
 
-# Informations complémentaires
+# Principales difficultes rencontrees
 
-Indiquer ici les informations qui pourraient aider à la compréhension du
-travail réalisé.
+Indiquer ici les principales difficultes rencontrees lors de la realisation de
+ce projet et comment elles ont ete surmontees ou contourneeS.
 
-Cette partie peut être vide.
+...
+
+
+
+# Informations complementaires
+
+Indiquer ici les informations qui pourraient aider a la comprehension du
+travail realise.
+
+Cette partie peut etre vide.
 
 ...
 
