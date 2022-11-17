@@ -1,12 +1,12 @@
 -- Définition de structures de données associatives sous la forme d'une table de hachage.
-with LCA; use LCA;
+with LCA;
 
 generic
     Taille_TH : Integer;
-    with function fonction_hachage return Integer;
-    type T_Cle is private;
+	type T_Cle is private;
     type T_Donnee is private;
-    
+    with function fonction_hachage(Cle : T_Cle) return Integer;
+
 package TH is
 
     type T_TH is limited private;
@@ -61,7 +61,10 @@ package TH is
 
 private
 
-    type T_TH is array(1..Taille_TH) of LCA;
+	package ma_T_LCA is new LCA(T_Cle => T_Cle, T_Donnee => T_Donnee);
+	use ma_T_LCA;
+
+    type T_TH is array(1..Taille_TH) of T_LCA;
 
 
 end TH;

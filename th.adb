@@ -4,18 +4,27 @@ with SDA_Exceptions; use SDA_Exceptions;
 
 package body TH is
 
+    --Fonction inaccesible par l'utilisateur
+    --Renvoi l'indice associé à une cle dans la TH 
+    function Indice (Cle : T_Cle) return Integer 
+    with Post => Indice'Result > 0 and Indice'Result <= Taille_TH
+    is
+    begin
+        return (fonction_hachage(Cle) mod Taille_TH +1);
+    end Indice;
+
     procedure Initialiser(Sda: out T_TH) is
     begin
         for i in 1..Taille_TH loop
-            Sda(i) := null;
+            Initialiser(Sda(i));
         end loop;
     end Initialiser;
 
-    function Est_Vide(Sda : T_TH) is
+    function Est_Vide(Sda : T_TH) return Boolean is
         tableau_vide : Boolean := True;
     begin
         for i in 1..Taille_TH loop
-            if Sda(i)/=null then
+            if not Est_vide(Sda(i)) then
                 tableau_vide := False;
             end if;
         end loop;
@@ -33,27 +42,39 @@ package body TH is
 
     procedure Enregistrer(Sda : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
     begin
-        null;
+        Enregistrer(Sda(Indice(Cle)), Cle, Donnee);
     end Enregistrer;
 
     procedure Supprimer(Sda : in out T_TH ; Cle : in T_Cle) is
     begin
-        null;
+        Supprimer(Sda(Indice(Cle)) , Cle);
     end Supprimer;
 
     function Cle_Presente(Sda : in T_TH ; Cle : in T_Cle) return Boolean is
     begin
-        return False;
+       return Cle_Presente(Sda(Indice(Cle)), Cle);
     end Cle_Presente;
 
     function La_Donnee(Sda : in T_TH ; Cle : in T_Cle) return T_Donnee is
     begin
-        return null;
+        return La_Donnee(Sda(Indice(Cle)), Cle);
     end La_Donnee;
 
-    procedure Pour_Chaque (Sda : in T_TH ) is
+    procedure Vider (Sda : in out T_TH) is
     begin
-        null;
+        for i in 1..Taille_TH loop
+            Vider(Sda(i));
+        end loop;
+    end Vider;
+
+    procedure Pour_Chaque (Sda : in T_TH ) is
+    
+    procedure Pour_Chaque_LCA is new ma_T_LCA.Pour_Chaque(Traiter => Traiter);
+
+    begin
+        for i in 1..Taille_TH loop
+            Pour_Chaque_LCA(Sda(i));
+        end loop;
     end Pour_Chaque;    
 
 end TH;
