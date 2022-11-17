@@ -1,10 +1,10 @@
 % Compte-rendu minimal du mini-projet SDA : LCA et TH
-% Auteur : NOM Prenom
-% Groupe de TP : ...
+% Auteur : NAXARA Xavier
+% Groupe de TP : H
 
 
-**Consigne :** Vous devez ecrire vos reponse a la place des ... en laissant
-une ligne vide avant et deux apres votre reponse.
+**Consigne :** Vous devez �crire vos r�ponse � la place des ... en laissant
+une ligne vide avant et deux apr�s votre r�ponse.
 
 **Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
 une version PDF en faisant par exemple :
@@ -18,45 +18,48 @@ pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
 
 ## Question 1.4
 
-**Indiquer les inconvenients/avantages d'une implantation par listes chainees
+**Indiquer les inconv�nients/avantages d'une implantation par listes cha�n�es
 d'une SDA.**
 
-...
+L'implantation par des listes chainées est simple et assure de d'avoir toujours 
+unicité des clés dans la strcuture de donnée.
+Un inconvenient majeur est le temps de recherche d'un élément dans la liste chainée.
+Par ailleurs, en cas de mauvaise implementation, l'utilisation des pointeurs peut conduire
+à des fuites de mémoire.
 
 
+# �valuation exp�rimentale.
 
-# evaluation experimentale.
+## Performance compar�e de LCA et TH
 
-## Performance comparee de LCA et TH
-
-Indiquer ici les resultats obtenus.
-
-...
-
-
-## Qualite du generateur aleatoire
-
-Indiquer les conclusions quant a la qualite du generateur aleatoire.
+Indiquer ici les r�sultats obtenus.
 
 ...
 
 
+## Qualit� du g�n�rateur al�atoire
 
-# Principales difficultes rencontrees
-
-Indiquer ici les principales difficultes rencontrees lors de la realisation de
-ce projet et comment elles ont ete surmontees ou contourneeS.
+Indiquer les conclusions quant � la qualit� du g�n�rateur al�atoire.
 
 ...
 
 
 
-# Informations complementaires
+# Principales difficult�s rencontr�es
 
-Indiquer ici les informations qui pourraient aider a la comprehension du
-travail realise.
+Indiquer ici les principales difficult�s rencontr�es lors de la r�alisation de
+ce projet et comment elles ont �t� surmont�es ou contourn�eS.
 
-Cette partie peut etre vide.
+...
+
+
+
+# Informations compl�mentaires
+
+Indiquer ici les informations qui pourraient aider � la compr�hension du
+travail r�alis�.
+
+Cette partie peut �tre vide.
 
 ...
 

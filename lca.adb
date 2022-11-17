@@ -113,11 +113,10 @@ package body LCA is
 		while Pointeur /= null loop
 		begin
 			Traiter(Pointeur.All.Cle, Pointeur.All.Donnee);
-			Pointeur := Pointeur.All.Suivant;	
-			--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-			---exception
-			--		Put("Erreur pour traitement d'une clé/donée");
-			--		Pointeur := Pointeur.All.Suivant;
+			Pointeur := Pointeur.All.suivant ;
+			exception		
+				when others => 
+					Pointeur := Pointeur.All.Suivant;
 		end;		
 		end loop;
 	end Pour_Chaque;

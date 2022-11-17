@@ -340,7 +340,6 @@ procedure Test_LCA is
 
 		procedure Sommer_Len4_Erreur (Cle: Unbounded_String; Donnee: Integer) is
 			Nouvelle_Exception: Exception;
-			--$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 		begin
 			if Length (Cle) = 4 then
 				Put (" + ");
