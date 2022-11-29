@@ -1,11 +1,11 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with SDA_Exceptions; use SDA_Exceptions;
---with Ada.Unchecked_Deallocation;
+-- with Ada.Unchecked_Deallocation;
 
 package body TH is
 
-    --Fonction inaccesible par l'utilisateur
-    --Renvoi l'indice associé à une cle dans la TH 
+    -- Fonction inaccesible par l'utilisateur
+    -- Renvoi l'indice associé à une cle dans la TH 
     function Indice (Cle : T_Cle) return Integer 
     with Post => Indice'Result > 0 and Indice'Result <= Taille_TH
     is
@@ -13,14 +13,14 @@ package body TH is
         return (fonction_hachage(Cle) mod Taille_TH +1);
     end Indice;
 
-    procedure Initialiser(Sda: out T_TH) is
+    procedure Initialiser (Sda: out T_TH) is
     begin
         for i in 1..Taille_TH loop
             Initialiser(Sda(i));
         end loop;
     end Initialiser;
 
-    function Est_Vide(Sda : T_TH) return Boolean is
+    function Est_Vide (Sda : T_TH) return Boolean is
         tableau_vide : Boolean := True;
     begin
         for i in 1..Taille_TH loop
@@ -31,7 +31,7 @@ package body TH is
         return tableau_vide;
     end Est_Vide;
 
-    function Taille(Sda : in T_TH) return Integer is
+    function Taille (Sda : in T_TH) return Integer is
         resultat : Integer := 0;
     begin
         for i in 1..Taille_TH loop
@@ -40,22 +40,22 @@ package body TH is
         return resultat; 
     end Taille;
 
-    procedure Enregistrer(Sda : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+    procedure Enregistrer (Sda : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
     begin
         Enregistrer(Sda(Indice(Cle)), Cle, Donnee);
     end Enregistrer;
 
-    procedure Supprimer(Sda : in out T_TH ; Cle : in T_Cle) is
+    procedure Supprimer (Sda : in out T_TH ; Cle : in T_Cle) is
     begin
         Supprimer(Sda(Indice(Cle)) , Cle);
     end Supprimer;
 
-    function Cle_Presente(Sda : in T_TH ; Cle : in T_Cle) return Boolean is
+    function Cle_Presente (Sda : in T_TH ; Cle : in T_Cle) return Boolean is
     begin
        return Cle_Presente(Sda(Indice(Cle)), Cle);
     end Cle_Presente;
 
-    function La_Donnee(Sda : in T_TH ; Cle : in T_Cle) return T_Donnee is
+    function La_Donnee (Sda : in T_TH ; Cle : in T_Cle) return T_Donnee is
     begin
         return La_Donnee(Sda(Indice(Cle)), Cle);
     end La_Donnee;

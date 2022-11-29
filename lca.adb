@@ -43,7 +43,7 @@ package body LCA is
 		else
 			Sda := New T_Cellule'(Cle, Donnee, Sda);
 		end if;
-
+	 	
 	end Enregistrer;
 
 

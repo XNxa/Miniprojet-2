@@ -12,7 +12,7 @@ package TH is
     type T_TH is limited private;
 
     -- Initialiser une Sda.  La Sda est vide.
-	procedure Initialiser(Sda: out T_TH) with
+	procedure Initialiser (Sda: out T_TH) with
 		Post => Est_Vide (Sda);
 
 
@@ -61,10 +61,10 @@ package TH is
 
 private
 
-	package ma_T_LCA is new LCA(T_Cle => T_Cle, T_Donnee => T_Donnee);
+	package ma_T_LCA is new LCA (T_Cle => T_Cle, T_Donnee => T_Donnee);
 	use ma_T_LCA;
 
-    type T_TH is array(1..Taille_TH) of T_LCA;
+    type T_TH is array (1..Taille_TH) of T_LCA;
 
 
 end TH;
