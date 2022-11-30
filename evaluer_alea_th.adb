@@ -108,6 +108,9 @@ procedure Evaluer_Alea_TH is
 				Min := Frequence;
 			end if;
 		end loop;
+
+		Vider(Sda) ;
+
 	end Calculer_Statistiques;
 
 
@@ -133,4 +136,8 @@ begin
 		Afficher_Variable ("Min", Min);
 		Afficher_Variable ("Max", Max);
 	end if;
+
+	Exception
+		when Others => Afficher_Usage; 
+
 end Evaluer_Alea_TH;
