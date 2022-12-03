@@ -27,4 +27,6 @@ begin
     Enregistrer(Ma_LCA, To_Unbounded_String("un"), 1);
     Enregistrer(Ma_LCA, To_Unbounded_String("deux"), 2);
     Affiche_LCA(Ma_LCA);
+
+    Vider(Ma_LCA);
 end lca_sujet;

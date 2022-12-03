@@ -3,8 +3,8 @@
 % Groupe de TP : H
 
 
-**Consigne :** Vous devez ï¿½crire vos rï¿½ponse ï¿½ la place des ... en laissant
-une ligne vide avant et deux aprï¿½s votre rï¿½ponse.
+**Consigne :** Vous devez écrire vos réponse ? la place des ... en laissant
+une ligne vide avant et deux apr?s votre réponse.
 
 **Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
 une version PDF en faisant par exemple :
@@ -18,48 +18,47 @@ pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
 
 ## Question 1.4
 
-**Indiquer les inconvï¿½nients/avantages d'une implantation par listes chaï¿½nï¿½es
+**Indiquer les inconvénients/avantages d'une implantation par listes chaînées
 d'une SDA.**
 
-L'implantation par des listes chainÃ©es est simple et assure de d'avoir toujours 
-unicitÃ© des clÃ©s dans la strcuture de donnÃ©e.
-Un inconvenient majeur est le temps de recherche d'un Ã©lÃ©ment dans la liste chainÃ©e.
+L'implantation par des listes chainées est simple et assure de d'avoir toujours 
+unicité des clés dans la strcuture de donnée.
+Un inconvenient majeur est le temps de recherche d'un élément dans la liste chainée.
 Par ailleurs, en cas de mauvaise implementation, l'utilisation des pointeurs peut conduire
-Ã  des fuites de mÃ©moire.
+? des fuites de mémoire.
 
 
-# ï¿½valuation expï¿½rimentale.
+# Evaluation expérimentale.
 
-## Performance comparï¿½e de LCA et TH
+## Performance comparée de LCA et TH
 
-Indiquer ici les rï¿½sultats obtenus.
-
-...
-
-
-## Qualitï¿½ du gï¿½nï¿½rateur alï¿½atoire
-
-Indiquer les conclusions quant ï¿½ la qualitï¿½ du gï¿½nï¿½rateur alï¿½atoire.
-
-...
+On remarque au vu des differents essais avec des valeurs de Borne et Taille variant entre respectivement de 10 ? 10? et 10 ? 10?. Que le programme utilisant TH est beaucoup plus rapide.
+Par exemple pour Borne = 10000 et Taile = 1000000 : Evaluer_Alea_Th met 0,134s contre 56,7 secondes pour l'equivalent lca.
+Cela s'explique par le nombre de cellulles ? parcourir pour trouver une donnée.
 
 
+## Qualité du générateur aléatoire
 
-# Principales difficultï¿½s rencontrï¿½es
-
-Indiquer ici les principales difficultï¿½s rencontrï¿½es lors de la rï¿½alisation de
-ce projet et comment elles ont ï¿½tï¿½ surmontï¿½es ou contournï¿½eS.
-
-...
-
+La moyenne des max sur dix essais avec Borne = 10000 et Taile = 1000000 est de 10330.
+La moyenne des min sur dix essais avec Borne = 10000 et Taile = 1000000 est de 9690.
+On a donc un écart de 3.2% en moyenne ? la borne pour les valeurs extr?mes.
+On peut donc dire que c'est un plutôt bon générateur aléatoire.
 
 
-# Informations complï¿½mentaires
+# Principales difficultés rencontrées
 
-Indiquer ici les informations qui pourraient aider ï¿½ la comprï¿½hension du
-travail rï¿½alisï¿½.
+Indiquer ici les principales difficultés rencontrées lors de la réalisation de
+ce projet et comment elles ont été surmontées ou contournées.
 
-Cette partie peut ï¿½tre vide.
+RAS
+
+
+# Informations complémentaires
+
+Indiquer ici les informations qui pourraient aider ? la compréhension du
+travail réalisé.
+
+Cette partie peut ?tre vide.
 
 ...
 
@@ -69,5 +68,5 @@ Cette partie peut ï¿½tre vide.
 
 Quel bilan personnel tirez vous de ce mini-projet ?
 
-...
+J'ai beaucoup appris sur l'utilisation des pointeurs et je comprends beaucoup mieux les opérations liées a ceux-ci.
 

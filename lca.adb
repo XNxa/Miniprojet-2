@@ -22,7 +22,7 @@ package body LCA is
 
 	function Taille (Sda : in T_LCA) return Integer is
 		compteur : Integer := 0;
-		Pointeur : T_LCA := Sda;
+		Pointeur : T_LCA := Sda; -- Pointeur sur les différentes cellules de la Lca pour les parcourir
 	begin
 		while Pointeur /= null loop
 			compteur := compteur +1;
@@ -33,15 +33,15 @@ package body LCA is
 
 
 	procedure Enregistrer (Sda : in out T_LCA ; Cle : in T_Cle ; Donnee : in T_Donnee) is
-		Pointeur : T_LCA := Sda;
+		Pointeur : T_LCA := Sda; -- Permet de parcourir la lca 
 	begin
-		if Cle_Presente(Sda, Cle) then
-			while Pointeur.all.Cle /= Cle loop
-				Pointeur := Pointeur.All.Suivant;
-			end loop;
-			Pointeur.All.Donnee := Donnee;
-		else
+		while Pointeur /= null and then Pointeur.all.Cle /= Cle loop
+			Pointeur := Pointeur.All.Suivant;
+		end loop;
+		if Pointeur = null then
 			Sda := New T_Cellule'(Cle, Donnee, Sda);
+		else
+			Pointeur.All.Donnee := Donnee;
 		end if;
 	 	
 	end Enregistrer;
@@ -49,40 +49,34 @@ package body LCA is
 
 	function Cle_Presente (Sda : in T_LCA ; Cle : in T_Cle) return Boolean is
 		Pointeur : T_LCA := Sda;
-		Cle_trouvee : Boolean;
 	begin
 		while Pointeur /= null and then Pointeur.all.Cle /= Cle loop
 			Pointeur := Pointeur.All.Suivant;
 		end loop;
-		if Pointeur /= null then
-			Cle_trouvee := True;
-		else
-			Cle_trouvee := False;
-		end if;
-
-		return Cle_trouvee;
+				
+		return (Pointeur /= null); -- Si on arrive à la fin de la boucle alors la clé est absente.
 	end Cle_Presente;
 
 	function La_Donnee (Sda : in T_LCA ; Cle : in T_Cle) return T_Donnee is
 		Pointeur : T_LCA := Sda;
 		Donnee : T_Donnee;
 	begin
-		if Cle_Presente(Sda, Cle) then
-			while Pointeur.all.Cle /= Cle loop
-				Pointeur := Pointeur.All.Suivant;
-			end loop;
-			Donnee := Pointeur.All.Donnee;
-		else
+		while Pointeur /= null and then Pointeur.all.Cle /= Cle loop
+			Pointeur := Pointeur.All.Suivant;
+		end loop;
+		if Pointeur = null then 
 			raise Cle_Absente_Exception;
+		else
+			Donnee := Pointeur.All.Donnee;
 		end if;
 		return Donnee;		
 	end La_Donnee;
 
 
 	procedure Supprimer (Sda : in out T_LCA ; Cle : in T_Cle) is
-		A_Detruire : T_LCA;
+		A_Detruire : T_LCA; -- Variable temporaire pour Free la cellule sans provoquer de fuite mémoire
 	begin
-		if Cle_Presente(Sda, Cle) then
+		if Sda /= Null then
 			if Sda.All.Cle /= Cle then
 				Supprimer(Sda.all.Suivant, Cle);
 			else
@@ -97,7 +91,7 @@ package body LCA is
 
 
 	procedure Vider (Sda : in out T_LCA) is
-		A_Detruire : T_LCA;
+		A_Detruire : T_LCA; -- Variable temporaire pour Free la cellule sans provoquer de fuite mémoire
 	begin
 		while not Est_Vide(Sda) loop
 			A_Detruire := Sda;
@@ -114,6 +108,8 @@ package body LCA is
 		begin
 			Traiter(Pointeur.All.Cle, Pointeur.All.Donnee);
 			Pointeur := Pointeur.All.suivant ;
+			
+			-- Si la procédure Traiter lève une exception on la traite et on continue le Pour_Chaque
 			exception		
 				when others => 
 					Pointeur := Pointeur.All.Suivant;

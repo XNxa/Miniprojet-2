@@ -54,7 +54,7 @@ procedure Test_LCA is
 	Cles : constant array (1..Nb_Cles) of Unbounded_String
 			:= (+"un", +"deux", +"trois", +"quatre", +"cinq",
 				+"quatre-vingt-dix-neuf", +"vingt-et-un");
-	Inconnu : constant  Unbounded_String := To_Unbounded_String ("Inconnu");
+	Inconnu : constant  Unbounded_String := + ("Inconnu");
 
 	Donnees : constant array (1..Nb_Cles) of Integer
 			:= (1, 2, 3, 4, 5, 99, 21);

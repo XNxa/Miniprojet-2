@@ -35,4 +35,6 @@ begin
     Enregistrer(Ma_TH, To_Unbounded_String("quatre-vingt-dix-neuf"), 99);
     Enregistrer(Ma_TH, To_Unbounded_String("vingt-et-un"), 21);
     Afficher_TH(Ma_TH);
+
+    Vider(Ma_TH);
 end th_sujet;
