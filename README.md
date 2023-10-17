@@ -1,4 +1,4 @@
-** This mini-project was developed at the beginning of my studies at ENSEEIHT to learn the concepts of imperative programming. **
+**This mini-project was developed at the beginning of my studies at ENSEEIHT to learn the concepts of imperative programming.**
 
 # Miniprojet-2-Structures-de-donnee-associative
 Two Ada implementations of an associative data structure
